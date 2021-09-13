@@ -1,0 +1,4 @@
+/**
+ * データベースアクセス
+ */
+package example.datasource;

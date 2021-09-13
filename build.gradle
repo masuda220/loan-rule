@@ -1,4 +1,7 @@
 plugins {
+    id 'org.springframework.boot' version '2.5.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.dddjava.jig-gradle-plugin' version '2021.9.1'
     id 'java'
 }
 
@@ -10,10 +13,45 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    runtimeOnly 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+    runtimeOnly 'com.h2database:h2'
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group: 'org.junit.vintage')
+    }
+
+    testImplementation('com.github.irof:jig-erd:latest.release')
 }
 
 test {
     useJUnitPlatform()
 }
+
+// Mybatisのmapper.xmlのスキャン対象
+sourceSets {
+    main {
+        resources.srcDirs = ["src/main/java", "src/main/resources"]
+    }
+}
+
+[compileJava, processResources]*.shouldRunAfter(clean)
+
+// JIG ドキュメントの生成タスク
+
+jigReports.dependsOn(clean, classes)
+
+task document(type: Copy, dependsOn: jigReports) {
+    from 'build/jig'
+    into 'src/main/resources/static/document/jig'
+}
+
+task documentWithErd(type: Test, dependsOn: document) {
+    useJUnitPlatform()
+    include '**/Erd**'
+}
+
+[document, documentWithErd]*.group('jig')
