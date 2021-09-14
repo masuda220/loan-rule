@@ -51,7 +51,7 @@ task document(type: Copy, dependsOn: jigReports) {
 
 task documentWithErd(type: Test, dependsOn: document) {
     useJUnitPlatform()
-    include '**/Erd**'
+    include '**/EntityRelationshipDiagram**'
 }
 
 [document, documentWithErd]*.group('jig')
