@@ -7,7 +7,7 @@ public class MemberNumber {
     int value;
 
     public MemberNumber(String value) {
-        this.value = Integer.valueOf(value);
+        this.value = Integer.parseInt(value);
     }
 
     @Deprecated(since = "MyBatis")

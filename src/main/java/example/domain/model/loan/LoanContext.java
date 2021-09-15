@@ -1,9 +1,6 @@
 package example.domain.model.loan;
 
-import example.domain.model.collection.book.BookNumber;
-import example.domain.model.loanability.Loanability;
 import example.domain.model.member.Member;
-import example.domain.model.member.MemberCategory;
 
 /**
  * 貸出の文脈

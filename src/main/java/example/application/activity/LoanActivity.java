@@ -31,8 +31,7 @@ public class LoanActivity {
     public LoanContext 貸出状況(MemberNumber 会員番号) {
         Member 会員 = 会員サービス.会員(会員番号);
         LoanHistory 貸出履歴 = 貸出サービス.貸出履歴(会員番号);
-        LoanContext 貸出判断の文脈 = LoanContext.of(会員, 貸出履歴);
-        return 貸出判断の文脈;
+        return LoanContext.of(会員, 貸出履歴);
     }
 
     public EntryList 蔵書品目一覧() {
