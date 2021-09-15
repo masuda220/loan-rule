@@ -4,6 +4,9 @@ import example.domain.model.member.Member;
 import example.domain.model.member.MemberNumber;
 import org.springframework.stereotype.Service;
 
+/**
+ * 会員サービス
+ */
 @Service
 public class MemberService {
     MemberRepository 会員;

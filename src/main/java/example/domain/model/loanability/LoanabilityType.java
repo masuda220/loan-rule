@@ -1,4 +1,4 @@
-package example.domain.model.loan;
+package example.domain.model.loanability;
 
 /**
  * 貸出判断の結果

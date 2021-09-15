@@ -3,6 +3,9 @@ package example.application.service.collection;
 import example.domain.model.collection.EntryList;
 import org.springframework.stereotype.Service;
 
+/**
+ * 蔵書サービス
+ */
 @Service
 public class CollectionService {
     CollectionRepository 蔵書;

@@ -5,7 +5,7 @@ import example.domain.model.member.MemberNumber;
 import org.springframework.stereotype.Service;
 
 /**
- * 貸出機能
+ * 貸出サービス
  */
 @Service
 public class LoanService {

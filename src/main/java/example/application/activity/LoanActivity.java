@@ -7,8 +7,8 @@ import example.domain.model.collection.EntryList;
 import example.domain.model.collection.book.BookNumber;
 import example.domain.model.loan.LoanContext;
 import example.domain.model.loan.LoanHistory;
-import example.domain.model.loan.Loanability;
-import example.domain.model.loan.LoanabilityType;
+import example.domain.model.loanability.Loanability;
+import example.domain.model.loanability.LoanabilityType;
 import example.domain.model.member.Member;
 import example.domain.model.member.MemberNumber;
 import org.springframework.stereotype.Service;
@@ -39,8 +39,7 @@ public class LoanActivity {
         return 蔵書サービス.蔵書品目一覧();
     }
 
-    public LoanabilityType 貸出判断(MemberNumber 会員番号, BookNumber 本番号) {
-        LoanContext 貸出状況 = 貸出状況(会員番号);
+    public LoanabilityType 貸出判断(LoanContext 貸出状況, BookNumber 本番号) {
         Loanability 貸出可否 = Loanability.of(貸出状況, 本番号);
         return 貸出可否.判断();
     }
