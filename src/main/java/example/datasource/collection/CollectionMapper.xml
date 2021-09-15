@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="example.datasource.collection.CollectionMapper">
+  <select id="entryList" resultType="example.domain.model.collection.Entry">
+    SELECT
+      書籍番号 AS "書籍.書籍番号.value",
+      タイトル AS "書籍.タイトル",
+      著者 AS "書籍.著者"
+    FROM 蔵書.品目
+    ORDER BY 書籍番号
+  </select>
+</mapper>

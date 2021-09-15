@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <th:block th:replace="_parts/head :: meta"/>
+  <title>貸出の判断</title>
+  <th:block th:replace="_parts/head :: css"/>
+</head>
+<body>
+<main>
+  <h2>貸出の状況</h2>
+  <h3>会員</h3>
+  <p th:text="${context.member()}"></p>
+  <h3>貸出履歴</h3>
+  <p th:text="${context.loanHistory()}"></p>
+
+  <h2>貸出可否の問合せ</h2>
+  <table>
+    <thead>
+     <th>書籍</th>
+     <th></th>
+    </thead>
+    <tr th:each="entry : ${entryList.list()}">
+      <td th:text="${entry.description()}"></td>
+      <td>
+        <a th:href="@{/members/{memberNumber}/loanability?bookNumber={bookNumber}(memberNumber = ${context.memberNumber()}, bookNumber = ${entry.number()})}">
+         貸出可否の確認
+        </a>
+      </td>
+    </tr>
+  </table>
+  <h3>貸出判断の結果</h3>
+  <p th:text="${loanability}"></p>
+  <p>
+    <a th:if="${loanability}" th:href="@{/members/{memberNumber}/loans(memberNumber = ${context.memberNumber()})}">
+      判断のクリア
+    </a>
+  </p>
+  <hr>
+  <a href="/">トップに戻る</a>
+</main>
+</body>
+</html>

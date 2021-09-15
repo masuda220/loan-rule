@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <th:block th:replace="_parts/head :: meta"/>
+  <title>業務体系</title>
+  <th:block th:replace="_parts/head :: css"/>
+</head>
+<body>
+<main>
+  <article>
+    <h1>図書の貸出ルール</h1>
+    <h4><a target="loans" href="/members/403/loans">貸出管理画面</a></h4>
+    <h4><a target="jig" th:href="@{/document/jig/index.html}">モデル図</a><small> by JIG</small></h4>
+    <h4><a target="jig-erd" th:href="@{/document/erd/index.html}">ER図</a><small> by JIG-ERD</small></h4>
+  </article>
+</main>
+</body>
+</html>

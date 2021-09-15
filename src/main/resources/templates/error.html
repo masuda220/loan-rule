@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="_parts/head :: meta"> </th:block>
+  <title>エラー画面（開発時）</title>
+  <th:block th:replace="_parts/head :: css"> </th:block>
+</head>
+<body>
+<main>
+  <article>
+    <h3 th:inline="text">([[${status}]]) [[${error}]]</h3>
+    <p th:text="'path: ' + ${path}"></p>
+    <p th:text="${message}"></p>
+    <p th:text="${timestamp}"></p>
+  </article>
+  <article>
+    <p th:text="'exception: ' + ${exception}"></p>
+    <p th:text="'errors: ' + ${errors}"></p>
+    <details>
+      <summary>スタックトレース</summary>
+      <p th:text="'trace: ' + ${trace}"></p>
+    </details>
+  </article>
+</main>
+</body>
+</html>

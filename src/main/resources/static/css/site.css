@@ -1,0 +1,115 @@
+/* 色の調整 */
+
+body {
+    background: whitesmoke;
+}
+
+header,
+footer {
+    background: white;
+}
+
+main {
+    background: ivory;
+}
+
+/* 幅とマージンの調整 */
+
+:root {
+    --width-card: 440px;
+    --width-card-wide: 95%;
+}
+
+body {
+    margin-top: 1rem;
+}
+
+footer,
+header,
+main {
+    max-width: var(--width-card-wide);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+nav {
+    margin-bottom: 0;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+h4, h5 {
+    margin-bottom: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+form {
+    width: 60%;
+}
+
+input, label, select, textarea {
+    width: var(--width-card-wide);
+}
+
+/* テーブルの調整 */
+/*table thead th,*/
+/*table tr td {*/
+/*    text-align: var(--justify-normal);*/
+/*}*/
+
+table tr td.center {
+    text-align: var(--justify-important);
+}
+
+table tr td.left {
+    text-align: var(--justify-normal);
+}
+
+table tr {
+    border-bottom: 1px solid lightgray;
+}
+
+/* メッセージ */
+.invalidMessage {
+    font-size: small;
+    color: orangered;
+    margin-bottom: 0;
+}
+
+.success {
+    color: forestgreen;
+}
+.error {
+    color: orangered;
+}
+
+/* リンク、ボタンの大きさ調整 */
+a b.small {
+    margin: 0;
+    padding: 0.1rem 0.5rem;
+}
+
+a b.orange {
+    background-color: white;
+    border-color: coral;
+    color: coral;
+}
+
+a b.orange:hover {
+    background-color: coral;
+    border-color: coral;
+    color: white;
+}
+
+table tr td a {
+    width: 100%;
+}
+table tr td a b {
+    width: 90%;
+}

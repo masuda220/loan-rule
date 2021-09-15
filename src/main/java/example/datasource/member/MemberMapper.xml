@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="example.datasource.member.MemberMapper">
+  <select id="findBy" resultType="example.domain.model.member.Member">
+    SELECT
+      会員番号 AS "会員番号.value",
+      氏名,
+      会員種別
+    FROM 会員.会員
+    WHERE
+      会員番号 = #{value}
+  </select>
+</mapper>

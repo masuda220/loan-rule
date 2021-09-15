@@ -1,5 +1,51 @@
 package example.domain.model.loan;
 
+import example.domain.model.collection.book.BookNumber;
+import example.domain.model.member.Member;
+import example.domain.model.member.MemberCategory;
+
+import static example.domain.model.loan.LoanabilityType.貸出できない;
+import static example.domain.model.loan.LoanabilityType.貸出できる;
+
+/**
+ * 貸出可否
+ */
 public class Loanability {
 
+    Member 会員;
+    LoanHistory 貸出履歴;
+    BookNumber 本番号;
+
+    Loanability(Member 会員, LoanHistory 貸出履歴, BookNumber 本番号) {
+        this.会員 = 会員;
+        this.貸出履歴 = 貸出履歴;
+        this.本番号 = 本番号;
+    }
+
+    public LoanabilityType 判断() {
+        if (貸出数超え()) return 貸出できない;
+        if (同じ本の貸出()) return 貸出できない;
+        if (返却遅れ有り()) return 貸出できない;
+        return 貸出できる;
+    }
+
+    private boolean 貸出数超え() {
+        MemberCategory 会員種別 = 会員.会員種別();
+        int 現在の貸出数 = 貸出履歴.貸出数();
+        int 最大貸出数 = 会員種別.最大貸出数();
+        return 現在の貸出数 >= 最大貸出数;
+    }
+
+    private boolean 同じ本の貸出() {
+        return false;
+    }
+
+    static final int 最大貸出日数 = 7 * 2;
+    private boolean 返却遅れ有り() {
+        return false;
+    }
+
+    public static Loanability of(LoanContext 貸出状況, BookNumber 本番号) {
+        return new Loanability(貸出状況.会員, 貸出状況.貸出履歴, 本番号);
+    }
 }
