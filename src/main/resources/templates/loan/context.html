@@ -21,11 +21,11 @@
      <th></th>
     </tr>
     </thead>
+    <!--/*@thymesVar id="entry" type="example.domain.model.collection.Entry"*/-->
     <tr th:each="entry : ${entryList.list()}">
-      <!--/*@thymesVar id="entry" type="example.domain.model.collection.Entry"*/-->
       <td th:text="${entry.description()}"></td>
       <td>
-        <a th:href="@{/members/{memberNumber}/loanability?bookNumber={bookNumber}(memberNumber = ${context.memberNumber()}, bookNumber = ${entry.number()})}">
+        <a th:href="@{/members/{memberNumber}/loanability(memberNumber = ${context.memberNumber()}, bookNumber = ${entry.number()})}">
          貸出可否の確認
         </a>
       </td>
