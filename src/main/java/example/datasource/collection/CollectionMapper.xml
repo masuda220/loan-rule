@@ -11,4 +11,16 @@
     FROM 蔵書.品目
     ORDER BY 書籍番号
   </select>
+
+  <select id="entry" resultType="example.domain.model.collection.Entry">
+    SELECT
+      書籍番号 AS "書籍.書籍番号.value",
+      タイトル AS "書籍.タイトル",
+      著者 AS "書籍.著者"
+    FROM 蔵書.品目
+    WHERE
+      書籍番号 = #{value}
+  </select>
+
+
 </mapper>

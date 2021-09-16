@@ -16,10 +16,13 @@
   <h2>貸出可否の問合せ</h2>
   <table>
     <thead>
+    <tr>
      <th>書籍</th>
      <th></th>
+    </tr>
     </thead>
     <tr th:each="entry : ${entryList.list()}">
+      <!--/*@thymesVar id="entry" type="example.domain.model.collection.Entry"*/-->
       <td th:text="${entry.description()}"></td>
       <td>
         <a th:href="@{/members/{memberNumber}/loanability?bookNumber={bookNumber}(memberNumber = ${context.memberNumber()}, bookNumber = ${entry.number()})}">
@@ -29,12 +32,17 @@
     </tr>
   </table>
   <h3>貸出判断の結果</h3>
-  <p th:text="${loanability}"></p>
-  <p>
-    <a th:if="${loanability}" th:href="@{/members/{memberNumber}/loans(memberNumber = ${context.memberNumber()})}">
+  <p ></p>
+  <div th:if="${loanability}">
+    <p>
+    <mark><span th:text="${loanability}"></span></mark>
+    </p>
+    <p>
+    <a th:href="@{/members/{memberNumber}/loans(memberNumber = ${context.memberNumber()})}">
       判断のクリア
     </a>
-  </p>
+    </p>
+  </div>
   <hr>
   <a href="/">トップに戻る</a>
 </main>

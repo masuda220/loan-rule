@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * 品目リスト
+ * 蔵書品目リスト
  */
 public class EntryList {
     List<Entry> list;

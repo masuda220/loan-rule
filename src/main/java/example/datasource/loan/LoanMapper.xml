@@ -3,12 +3,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="example.datasource.loan.LoanMapper">
-  <select id="history" resultType="example.domain.model.loan.Loan">
+
+  <resultMap id="loan" type="example.domain.model.loan.Loan">
+    <id property="蔵書.蔵書番号.value" column="蔵書.蔵書番号.value"/>
+    <association property="蔵書.蔵書品目"
+                 column="書籍番号"
+                 select="example.datasource.collection.CollectionMapper.entry" />
+  </resultMap>
+
+  <select id="history" resultMap="loan">
     SELECT
-      蔵書番号 AS "蔵書番号.value",
+      貸出.蔵書番号 AS "蔵書.蔵書番号.value",
       会員番号 AS "会員番号.value",
-      貸出日 AS "貸出日"
+      貸出日 AS "貸出日",
+      書籍番号
     FROM 貸出.貸出
+    INNER JOIN 蔵書.蔵書 ON 貸出.蔵書番号 = 蔵書.蔵書番号
     WHERE
       会員番号 = #{value}
   </select>
