@@ -12,11 +12,11 @@ import static example.domain.model.loanability.LoanabilityType.貸出できる;
 public class Loanability {
 
     LoanContext 貸出の文脈;
-    BookNumber 本番号;
+    BookNumber 書籍番号;
 
-    Loanability(LoanContext 貸出の文脈, BookNumber 本番号) {
+    Loanability(LoanContext 貸出の文脈, BookNumber 書籍番号) {
         this.貸出の文脈 = 貸出の文脈;
-        this.本番号 = 本番号;
+        this.書籍番号 = 書籍番号;
     }
 
     public LoanabilityType 判断() {
@@ -41,8 +41,8 @@ public class Loanability {
         return false;
     }
 
-    public static Loanability of(LoanContext 貸出の文脈, BookNumber 本番号) {
-        return new Loanability(貸出の文脈, 本番号);
+    public static Loanability of(LoanContext 貸出の文脈, BookNumber 書籍番号) {
+        return new Loanability(貸出の文脈, 書籍番号);
     }
 
 

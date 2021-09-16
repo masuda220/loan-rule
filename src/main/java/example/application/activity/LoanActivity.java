@@ -38,8 +38,8 @@ public class LoanActivity {
         return 蔵書サービス.蔵書品目一覧();
     }
 
-    public LoanabilityType 貸出判断(LoanContext 貸出状況, BookNumber 本番号) {
-        Loanability 貸出可否 = Loanability.of(貸出状況, 本番号);
+    public LoanabilityType 貸出判断(LoanContext 貸出状況, BookNumber 書籍番号) {
+        Loanability 貸出可否 = Loanability.of(貸出状況, 書籍番号);
         return 貸出可否.判断();
     }
 }

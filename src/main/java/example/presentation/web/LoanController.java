@@ -37,13 +37,13 @@ public class LoanController {
     @GetMapping("/{会員番号}/loanability")
     String 貸出判断(
           @PathVariable MemberNumber 会員番号,
-          @RequestParam("bookNumber") BookNumber 本番号,
+          @RequestParam("bookNumber") BookNumber 書籍番号,
           Model model) {
         LoanContext 貸出状況 = loanActivity.貸出状況(会員番号);
         model.addAttribute("context", 貸出状況);
         EntryList 蔵書品目一覧 = loanActivity.蔵書品目一覧();
         model.addAttribute("entryList", 蔵書品目一覧);
-        LoanabilityType 貸出判断 = loanActivity.貸出判断(貸出状況, 本番号);
+        LoanabilityType 貸出判断 = loanActivity.貸出判断(貸出状況, 書籍番号);
         model.addAttribute("loanability", 貸出判断);
         return "loan/context";
     }
