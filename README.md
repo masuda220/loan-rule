@@ -2,6 +2,8 @@
 
 - 図書館の貸出ルールの実装例
 - 貸出ルールの変更や修正が楽で安全かを体験する
+ 
+参考資料:[変更を楽で安全にする設計スタイル:ワークショップ編](https://speakerdeck.com/masuda220/bian-geng-wole-nian-quan-nisurutamefalseshe-ji-wakusiyotupubian)
 
 ## 動作方法
 
