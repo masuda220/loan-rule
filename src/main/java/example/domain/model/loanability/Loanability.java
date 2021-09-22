@@ -1,7 +1,6 @@
 package example.domain.model.loanability;
 
 import example.domain.model.collection.Entry;
-import example.domain.model.collection.book.BookNumber;
 import example.domain.model.loan.LoanContext;
 
 import static example.domain.model.loanability.LoanabilityType.貸出できない;
