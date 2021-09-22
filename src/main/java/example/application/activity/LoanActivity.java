@@ -3,6 +3,7 @@ package example.application.activity;
 import example.application.service.collection.CollectionService;
 import example.application.service.loan.LoanService;
 import example.application.service.member.MemberService;
+import example.domain.model.collection.Entry;
 import example.domain.model.collection.EntryList;
 import example.domain.model.collection.book.BookNumber;
 import example.domain.model.loan.LoanContext;
@@ -39,7 +40,8 @@ public class LoanActivity {
     }
 
     public LoanabilityType 貸出判断(LoanContext 貸出状況, BookNumber 書籍番号) {
-        Loanability 貸出可否 = Loanability.of(貸出状況, 書籍番号);
+        Entry 蔵書品目 = 蔵書サービス.蔵書品目(書籍番号);
+        Loanability 貸出可否 = Loanability.of(貸出状況, 蔵書品目);
         return 貸出可否.判断();
     }
 }
